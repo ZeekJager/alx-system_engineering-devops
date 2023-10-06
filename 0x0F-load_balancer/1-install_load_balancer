@@ -11,11 +11,14 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend  zach_frontend
+frontend  zachabera.tech
+        timeout client  30000
         bind *:80
         mode http
-        default_backend zach_backend
-backend zach_backend
+        default_backend zachabera.tech_backend
+backend zachabera.tech_backend
+        timeout connect  3000
+        timeout server  30000
         balance roundrobin
         server 330837-web-01 54.196.38.65:80 check
         server 330837-web-02 54.237.40.128:80 check
