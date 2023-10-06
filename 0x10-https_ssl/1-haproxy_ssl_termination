@@ -41,7 +41,7 @@ frontend zach_front_end
     http-request set-header X-Forwarded-Proto https
     default_backend besthor_back_end
 
-backend besthor_back_end
+backend zach_back_end
     balance roundrobin
     
     server 330837-web-01 54.196.38.65:80 check
